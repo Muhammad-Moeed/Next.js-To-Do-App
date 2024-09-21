@@ -46,35 +46,36 @@ export default function TodoApp() {
       maxWidth: "700px", 
       margin: "auto", 
       boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+      overflowX: "hidden" // Prevent horizontal overflow
     }}>
       <h1 style={{
         backgroundColor: "black",
         color: "red",
         padding: "15px",
-        textAlign:"center"
+        textAlign: "center"
       }}>
         <span style={{ color: "#ffff" }}>Next.js To-Do App By </span>Muhammad Moeed
       </h1>
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", marginBottom: "20px",marginTop:"10px" }}>
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", marginBottom: "20px" }}>
         <input
           type="text"
           placeholder="Enter a task"
           value={task}
           onChange={handleChange}
-          style={{ padding: "10px", marginRight: "10px", flexGrow: 1, minWidth: "200px", }} 
+          style={{ padding: "10px", marginTop: "20px", marginRight: "10px", flexGrow: 1, minWidth: "200px", width: "80%" }} 
         />
-        <button type="submit" style={{ padding: "10px", minWidth: "100px",color:"#fff", backgroundColor:"black",marginTop:"10px" }}>Add Task</button>
+        <button type="submit" style={{ padding: "10px", marginTop: "20px", minWidth: "100px", color: "#fff", backgroundColor: "black" }}>Add Task</button>
       </form>
       <ul style={{ listStyle: "none", paddingLeft: "0", margin: "0" }}>
         {tasks.map((task, index) => (
-          <li key={index} style={{ display: "flex", alignItems: "center", marginBottom: "10px", flexWrap: "wrap" }}>
+          <li key={index} style={{ display: "flex", alignItems: "center", marginBottom: "10px", flexWrap: "wrap", width: "100%" }}>
             {isEditing === index ? (
-              <form onSubmit={handleUpdate} style={{ display: "flex", flexGrow: 1 }}>
+              <form onSubmit={handleUpdate} style={{ display: "flex", flexGrow: 1, width: "100%" }}>
                 <input
                   type="text"
                   value={editTask}
                   onChange={(e) => setEditTask(e.target.value)}
-                  style={{ padding: "10px", flexGrow: 1, marginRight: "10px" }}
+                  style={{ padding: "10px", flexGrow: 1, marginRight: "10px", width: "100%" }}
                 />
                 <button type="submit" style={{ padding: "5px 20px", borderRadius: "8px", color: "#bab100", backgroundColor: "black" }}>
                   Save
@@ -89,6 +90,8 @@ export default function TodoApp() {
                   flexGrow: 1,
                   maxWidth: "400px",
                   overflowWrap: "break-word",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
                 }}>{task}</span>
                 <button
                   onClick={() => handleEdit(index)}
@@ -98,8 +101,7 @@ export default function TodoApp() {
                     color: "#fff",
                     backgroundColor: "black",
                     marginRight: "10px",
-                    marginTop:"10px"
-
+                    marginTop: "10px"
                   }}
                 >
                   Edit
@@ -111,7 +113,7 @@ export default function TodoApp() {
                     borderRadius: "8px",
                     color: "red",
                     backgroundColor: "black",
-                    marginTop:"10px"
+                    marginTop: "10px"
                   }}
                 >
                   Delete
