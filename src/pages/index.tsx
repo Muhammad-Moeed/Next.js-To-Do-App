@@ -55,7 +55,7 @@ export default function TodoApp() {
       }}>
         <span style={{ color: "#ffff" }}>Next.js To-Do App By </span>Muhammad Moeed
       </h1>
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", marginBottom: "20px" }}>
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", marginBottom: "20px",marginTop:"10px" }}>
         <input
           type="text"
           placeholder="Enter a task"
@@ -63,7 +63,7 @@ export default function TodoApp() {
           onChange={handleChange}
           style={{ padding: "10px", marginRight: "10px", flexGrow: 1, minWidth: "200px", }} 
         />
-        <button type="submit" style={{ padding: "10px", minWidth: "100px",color:"#fff", backgroundColor:"black" }}>Add Task</button>
+        <button type="submit" style={{ padding: "10px", minWidth: "100px",color:"#fff", backgroundColor:"black",marginTop:"10px" }}>Add Task</button>
       </form>
       <ul style={{ listStyle: "none", paddingLeft: "0", margin: "0" }}>
         {tasks.map((task, index) => (
@@ -98,6 +98,8 @@ export default function TodoApp() {
                     color: "#fff",
                     backgroundColor: "black",
                     marginRight: "10px",
+                    marginTop:"10px"
+
                   }}
                 >
                   Edit
@@ -109,6 +111,7 @@ export default function TodoApp() {
                     borderRadius: "8px",
                     color: "red",
                     backgroundColor: "black",
+                    marginTop:"10px"
                   }}
                 >
                   Delete
